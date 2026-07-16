@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>DAMANN | AFC & Regulatory Compliance für Banken und Fintechs</title>
+<meta name="description" content="Spezialisierte Beratung zu EU-AML-Paket (AMLR/AMLA), Payments (PSD2/PSD3), Transaction Monitoring und Sanctions Screening. Festpreis-Pakete und Interim-Mandate für Banken und Fintechs im DACH-Raum." />
+
+<!-- ============================================================= -->
+<!--  DAMANN Consulting – One-Page-Landingpage                      -->
+<!--  Pflegehinweis: Fast alle änderbaren Inhalte (Kontakt, Preise, -->
+<!--  Leistungen) stehen im CONFIG-Block ganz unten im <script>.    -->
+<!--  Fließtext steht direkt im HTML und ist mit Kommentaren        -->
+<!--  markiert. Einfach die Datei bei IONOS als index.html          -->
+<!--  hochladen – fertig.                                           -->
+<!-- ============================================================= -->
+
+<style>
+  :root{
+    --navy-900:#0a1428;
+    --navy-800:#0d1b34;
+    --navy-700:#122544;
+    --navy-600:#1a3057;
+    --gold:#c9a55c;
+    --gold-soft:#d8bd82;
+    --ink:#e8ecf3;
+    --muted:#9aa6bd;
+    --line:rgba(201,165,92,.22);
+    --card:#0f1e3a;
+    --radius:14px;
+    --maxw:1120px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;
+    background:var(--navy-900);
+    color:var(--ink);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:Georgia,"Times New Roman",serif;font-weight:600;line-height:1.2;letter-spacing:.2px}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+  .gold{color:var(--gold)}
+  .muted{color:var(--muted)}
+  section{padding:88px 0}
+  .eyebrow{
+    text-transform:uppercase;letter-spacing:2.5px;font-size:12.5px;
+    color:var(--gold);font-family:"Segoe UI",sans-serif;font-weight:600;margin-bottom:14px;
+  }
+  .btn{
+    display:inline-block;padding:14px 26px;border-radius:8px;font-weight:600;
+    font-size:15px;cursor:pointer;border:1px solid transparent;transition:.2s;
+  }
+  .btn-gold{background:var(--gold);color:var(--navy-900)}
+  .btn-gold:hover{background:var(--gold-soft)}
+  .btn-ghost{border:1px solid var(--line);color:var(--ink)}
+  .btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(10,20,40,.86);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+  .logo{font-family:Georgia,serif;font-size:23px;letter-spacing:3px;font-weight:600}
+  .logo span{color:var(--gold)}
+  .nav-links{display:flex;gap:30px;align-items:center}
+  .nav-links a{font-size:14.5px;color:var(--muted);transition:.2s}
+  .nav-links a:hover{color:var(--gold)}
+  .nav-cta{padding:10px 20px;font-size:14px}
+  .burger{display:none;background:none;border:0;color:var(--ink);font-size:26px;cursor:pointer}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    padding:120px 0 96px;position:relative;overflow:hidden;
+    background:
+      radial-gradient(900px 420px at 78% -10%,rgba(201,165,92,.14),transparent 60%),
+      linear-gradient(180deg,var(--navy-800),var(--navy-900));
+  }
+  .hero h1{font-size:clamp(34px,5vw,54px);max-width:760px;margin-bottom:22px}
+  .hero p.lead{font-size:clamp(17px,2vw,20px);color:var(--muted);max-width:620px;margin-bottom:34px}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap}
+  .hero-badges{display:flex;gap:26px;flex-wrap:wrap;margin-top:44px;color:var(--muted);font-size:14px}
+  .hero-badges b{color:var(--ink);font-weight:600}
+
+  /* ---------- URGENCY BAND ---------- */
+  .band{background:var(--navy-700);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:34px 0}
+  .band .wrap{display:flex;align-items:center;gap:26px;flex-wrap:wrap;justify-content:space-between}
+  .band .deadline{font-family:Georgia,serif;font-size:clamp(26px,4vw,40px);color:var(--gold)}
+  .band p{max-width:640px;color:var(--muted);font-size:15px}
+
+  /* ---------- SECTION TITLES ---------- */
+  .sec-head{max-width:660px;margin-bottom:52px}
+  .sec-head h2{font-size:clamp(27px,3.6vw,38px);margin-bottom:14px}
+  .sec-head p{color:var(--muted);font-size:16.5px}
+
+  /* ---------- OFFER CARDS ---------- */
+  .grid{display:grid;gap:22px}
+  .grid-3{grid-template-columns:repeat(3,1fr)}
+  .grid-2{grid-template-columns:repeat(2,1fr)}
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:30px 26px;transition:.22s;display:flex;flex-direction:column;
+  }
+  .card:hover{transform:translateY(-4px);border-color:var(--gold)}
+  .card h3{font-size:20px;margin-bottom:10px}
+  .card .price{color:var(--gold);font-weight:600;font-size:15px;margin-bottom:14px;font-family:"Segoe UI",sans-serif}
+  .card p{color:var(--muted);font-size:14.5px;margin-bottom:16px;flex-grow:1}
+  .card ul{list-style:none;font-size:14px;color:var(--muted)}
+  .card ul li{padding:5px 0 5px 22px;position:relative}
+  .card ul li::before{content:"";position:absolute;left:0;top:12px;width:8px;height:8px;background:var(--gold);border-radius:2px;transform:rotate(45deg)}
+
+  /* ---------- PILLARS ---------- */
+  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+  .pillar .num{font-family:Georgia,serif;font-size:34px;color:var(--gold);opacity:.65}
+  .pillar h3{font-size:19px;margin:8px 0 10px}
+  .pillar p{color:var(--muted);font-size:15px}
+
+  /* ---------- QUICK CHECK TOOL ---------- */
+  #tool{background:linear-gradient(180deg,var(--navy-800),var(--navy-900))}
+  .tool-box{
+    background:var(--card);border:1px solid var(--line);border-radius:18px;
+    padding:38px;max-width:760px;margin:0 auto;
+  }
+  .q{padding:16px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+  .q:last-of-type{border-bottom:0}
+  .q p{margin-bottom:10px;font-size:15.5px}
+  .opts{display:flex;gap:10px;flex-wrap:wrap}
+  .opt{
+    padding:8px 16px;border:1px solid var(--line);border-radius:30px;font-size:13.5px;
+    cursor:pointer;color:var(--muted);transition:.15s;user-select:none;
+  }
+  .opt:hover{border-color:var(--gold)}
+  .opt.sel{background:var(--gold);color:var(--navy-900);border-color:var(--gold);font-weight:600}
+  .result{
+    margin-top:26px;padding:26px;border-radius:12px;border:1px solid var(--line);
+    background:var(--navy-700);text-align:center;display:none;
+  }
+  .result.show{display:block;animation:fade .4s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1}}
+  .score-num{font-family:Georgia,serif;font-size:52px;color:var(--gold);line-height:1}
+  .bar{height:10px;background:rgba(255,255,255,.08);border-radius:6px;margin:18px 0;overflow:hidden}
+  .bar span{display:block;height:100%;background:linear-gradient(90deg,var(--gold-soft),var(--gold));width:0;transition:width .8s ease}
+
+  /* ---------- EXPERTISE ---------- */
+  .exp-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:start}
+  .tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+  .tag{border:1px solid var(--line);border-radius:6px;padding:7px 13px;font-size:13px;color:var(--muted)}
+  .creds{margin-top:26px}
+  .creds li{list-style:none;padding:8px 0 8px 24px;position:relative;color:var(--muted);font-size:14.5px}
+  .creds li::before{content:"✓";position:absolute;left:0;color:var(--gold)}
+  .exp-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:28px}
+  .exp-card h4{font-family:Georgia,serif;font-size:17px;color:var(--gold);margin-bottom:14px}
+  .exp-card .role{padding:11px 0;border-bottom:1px solid rgba(255,255,255,.06);font-size:14.5px}
+  .exp-card .role:last-child{border-bottom:0}
+  .exp-card .role b{color:var(--ink)}
+
+  /* ---------- INSIGHTS ---------- */
+  .insight{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px;transition:.2s}
+  .insight:hover{border-color:var(--gold);transform:translateY(-3px)}
+  .insight .cat{color:var(--gold);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px}
+  .insight h3{font-size:18px;margin-bottom:10px}
+  .insight p{color:var(--muted);font-size:14px}
+
+  /* ---------- CONTACT ---------- */
+  #kontakt{background:var(--navy-800)}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+  .contact-grid h2{font-size:clamp(27px,3.6vw,38px);margin-bottom:16px}
+  .contact-grid p{color:var(--muted);margin-bottom:24px}
+  .contact-list li{list-style:none;padding:10px 0;font-size:15.5px}
+  .contact-list .lbl{color:var(--muted);font-size:13px;display:block}
+  .cta-panel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:34px;text-align:center}
+  .cta-panel h3{font-size:22px;margin-bottom:12px}
+  .cta-panel .btn{width:100%;margin-top:8px;padding:16px}
+
+  /* ---------- FOOTER / IMPRESSUM ---------- */
+  footer{border-top:1px solid var(--line);padding:56px 0 32px;background:var(--navy-900)}
+  .foot-top{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;margin-bottom:34px}
+  .foot-legal{font-size:13px;color:var(--muted);line-height:1.8}
+  .foot-legal h4{font-family:"Segoe UI",sans-serif;color:var(--ink);font-size:14px;margin-bottom:8px;text-transform:uppercase;letter-spacing:1px}
+  details{margin-top:14px;border-top:1px solid rgba(255,255,255,.06);padding-top:14px}
+  summary{cursor:pointer;color:var(--gold);font-size:13.5px;font-weight:600}
+  details p, details li{font-size:12.5px;color:var(--muted);margin-top:8px}
+  .copyright{text-align:center;font-size:12.5px;color:var(--muted);margin-top:30px;padding-top:20px;border-top:1px solid rgba(255,255,255,.06)}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:900px){
+    .grid-3,.pillars{grid-template-columns:1fr 1fr}
+    .exp-grid,.contact-grid{grid-template-columns:1fr;gap:34px}
+  }
+  @media(max-width:680px){
+    section{padding:64px 0}
+    .grid-3,.grid-2,.pillars{grid-template-columns:1fr}
+    .nav-links{display:none}
+    .burger{display:block}
+    .nav-links.open{
+      display:flex;flex-direction:column;position:absolute;top:70px;left:0;right:0;
+      background:var(--navy-800);padding:20px 24px;gap:18px;border-bottom:1px solid var(--line);
+    }
+    .nav-links.open .nav-cta{align-self:flex-start}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== NAV ===================== -->
+<header>
+  <div class="wrap nav">
+    <div class="logo">DA<span>M</span>ANN</div>
+    <nav class="nav-links" id="navLinks">
+      <a href="#leistungen">Leistungen</a>
+      <a href="#ansatz">Ansatz</a>
+      <a href="#tool">Quick-Check</a>
+      <a href="#expertise">Expertise</a>
+      <a href="#insights">Insights</a>
+      <a href="#kontakt" class="btn btn-gold nav-cta">Erstgespräch buchen</a>
+    </nav>
+    <button class="burger" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Anti-Financial Crime &amp; Regulatory Compliance</div>
+    <h1>Das EU-AML-Paket kommt. Ist Ihr Institut vorbereitet?</h1>
+    <p class="lead">Spezialisierte Beratung für Banken und Fintechs im DACH-Raum – zu AMLR/AMLA, Payments (PSD2/PSD3), Transaction Monitoring und Sanctions Screening. Von der Gap-Analyse bis zur Umsetzung.</p>
+    <div class="hero-cta">
+      <a href="#kontakt" class="btn btn-gold">Kostenloses Erstgespräch</a>
+      <a href="#leistungen" class="btn btn-ghost">Leistungen &amp; Festpreise</a>
+    </div>
+    <div class="hero-badges">
+      <div><b>8+ Jahre</b> AFC &amp; Regulatory</div>
+      <div><b>Deutsche Bank</b> · <b>SMBC</b> · <b>BearingPoint</b> · <b>Qonto</b></div>
+      <div><b>DACH</b> Banking &amp; Fintech</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== URGENCY BAND ===================== -->
+<!-- Deadline-Text ist bewusst statisch. Bei Bedarf Datum unten anpassen. -->
+<div class="band">
+  <div class="wrap">
+    <div>
+      <div class="deadline">Ab 10. Juli 2027</div>
+      <div class="muted" style="font-size:14px">Geltungsbeginn AMLR (VO (EU) 2024/1624)</div>
+    </div>
+    <p>Die AMLR gilt unmittelbar – ohne nationale Umsetzung. Parallel nimmt die AMLA in Frankfurt ihre Aufsicht auf. Institute, die jetzt Lücken in Governance, Systemen und Prozessen schließen, vermeiden Feststellungen und Nachbesserungen unter Zeitdruck.</p>
+  </div>
+</div>
+
+<!-- ===================== LEISTUNGEN ===================== -->
+<section id="leistungen">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Leistungen</div>
+      <h2>Klar definierte Pakete für klar definierte Probleme</h2>
+      <p>Feste Einstiegspakete mit transparentem Umfang und Festpreis – als Diagnostik, die bei Bedarf in ein umfassenderes Mandat übergeht.</p>
+    </div>
+    <div class="grid grid-3" id="offerGrid">
+      <!-- Karten werden aus CONFIG.offers gerendert (siehe Script unten) -->
+    </div>
+    <p class="muted" style="font-size:13.5px;margin-top:22px">
+      Alle Pakete remote oder vor Ort (DACH). Vor-Ort-Tage werden all-inclusive kalkuliert. Umfangreichere Mandate und Interim-Rollen auf Projektbasis.
+    </p>
+  </div>
+</section>
+
+<!-- ===================== ANSATZ / PILLARS ===================== -->
+<section id="ansatz" style="background:var(--navy-800)">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Ansatz</div>
+      <h2>Regulatorik, die in Systemen und Prozessen ankommt</h2>
+      <p>Mein Fokus liegt auf den Prozessen, Modellen und Systemen hinter AML und Sanktionen – nicht auf der Einzelfallbearbeitung. Regulatorische Anforderungen werden bei mir operativ umsetzbar.</p>
+    </div>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="num">01</div>
+        <h3>Interpretation</h3>
+        <p>Was AMLR, AMLD6, ToFR und PSD2/PSD3 konkret verlangen – übersetzt in Anforderungen an Ihr Institut, nicht in Paragraphen-Zitate.</p>
+      </div>
+      <div class="pillar">
+        <div class="num">02</div>
+        <h3>Implikation</h3>
+        <p>Welche Auswirkungen auf Governance, Policies, Datenmodelle, Monitoring- und Screening-Systeme entstehen – priorisiert nach Risiko und Aufwand.</p>
+      </div>
+      <div class="pillar">
+        <div class="num">03</div>
+        <h3>Umsetzung</h3>
+        <p>Konkrete Umsetzungsempfehlungen und Begleitung – von der Roadmap bis zur Kalibrierung von Schwellenwerten und Kontrollen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== QUICK-CHECK TOOL ===================== -->
+<!-- Demo für interaktive Tools. Logik + Fragen stehen im Script (CONFIG.quickCheck). -->
+<section id="tool">
+  <div class="wrap">
+    <div class="sec-head" style="text-align:center;margin:0 auto 44px">
+      <div class="eyebrow">Interaktives Tool</div>
+      <h2>AMLR-Readiness Quick-Check</h2>
+      <p>Sechs Fragen, eine erste Einschätzung. In unter zwei Minuten sehen Sie, wo Ihr Institut im Hinblick auf das EU-AML-Paket steht.</p>
+    </div>
+    <div class="tool-box">
+      <div id="questions"></div>
+      <button class="btn btn-gold" style="width:100%;margin-top:22px" onclick="calcReadiness()">Ergebnis anzeigen</button>
+      <div class="result" id="result">
+        <div class="muted" style="font-size:13px;text-transform:uppercase;letter-spacing:2px">Ihr Readiness-Score</div>
+        <div class="score-num"><span id="scoreVal">0</span><span style="font-size:26px">%</span></div>
+        <div class="bar"><span id="scoreBar"></span></div>
+        <p id="scoreText" class="muted" style="max-width:520px;margin:0 auto 20px"></p>
+        <a href="#kontakt" class="btn btn-gold">Ergebnis im Erstgespräch besprechen</a>
+      </div>
+      <p class="muted" style="font-size:12px;margin-top:18px;text-align:center">Unverbindliche Orientierung, keine Rechts- oder Aufsichtsberatung. Es werden keine Daten gespeichert oder übertragen.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== EXPERTISE ===================== -->
+<section id="expertise">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Expertise</div>
+      <h2>Wer hinter DAMANN steht</h2>
+    </div>
+    <div class="exp-grid">
+      <div>
+        <!-- Über-mich-Text: hier bei Bedarf anpassen -->
+        <p class="muted" style="font-size:16px">
+          Benedikt Damann berät als Senior Consultant Banken und Fintechs zu Anti-Financial Crime, AML/KYC und regulatorischer Transformation. Über rund acht Jahre in Senior-Rollen bei Deutsche Bank (AFC Model Risk, Programme Management für Name-List- und Sanctions-Screening), BearingPoint, der EU-Zentrale einer japanischen Großbank (AMLR/AMLA-Vorbereitung über Head Office und neun EU-Niederlassungen) sowie aktuell Qonto (Regulatory Compliance DE/AT/NL).
+        </p>
+        <p class="muted" style="font-size:16px;margin-top:16px">
+          Der Schwerpunkt liegt auf den Prozessen, Modellen und Systemen hinter AML und Sanktionen – ein technisch fundierter Blick auf Regulatorik, der Anforderungen bis in Datenmodelle, Monitoring-Logik und Kontrollen trägt.
+        </p>
+        <div class="tags">
+          <span class="tag">AMLR 2024/1624</span><span class="tag">AMLD6</span><span class="tag">ToFR</span>
+          <span class="tag">AMLA</span><span class="tag">PSD2 / PSD3</span><span class="tag">Transaction Monitoring</span>
+          <span class="tag">Sanctions Screening</span><span class="tag">KYC / CDD / EDD</span><span class="tag">Model Risk</span>
+          <span class="tag">MaRisk · BAIT</span><span class="tag">EBA Guidelines</span><span class="tag">DORA</span><span class="tag">MiCA</span>
+        </div>
+        <ul class="creds">
+          <li>Anti-Financial Crime Expert – Steinbeis Akademie</li>
+          <li>Professional Scrum Product Owner I (PSPO I) · Professional Scrum Master I (PSM I)</li>
+          <li>Referenzprojekt: produktisierte Beratungsleistung für die EU-Zentrale einer japanischen Großbank</li>
+        </ul>
+      </div>
+      <div class="exp-card">
+        <h4>Ausgewählte Stationen</h4>
+        <div class="role"><b>Qonto</b><br><span class="muted">Regulatory Compliance Consultant · DE/AT/NL</span></div>
+        <div class="role"><b>SMBC Bank EU AG</b><br><span class="muted">AFC Governance &amp; Strategy · AMLR/AMLA-Vorbereitung</span></div>
+        <div class="role"><b>Deutsche Bank</b><br><span class="muted">AFC Model Risk · Programme Manager Name List &amp; Sanctions Screening</span></div>
+        <div class="role"><b>BearingPoint</b><br><span class="muted">Banking &amp; Capital Markets</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== INSIGHTS ===================== -->
+<section id="insights" style="background:var(--navy-800)">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Insights</div>
+      <h2>Regulatorik verständlich erklärt</h2>
+      <p>Praxisnahe Einordnungen zum EU-AML-Paket und zu Payments – was die Regelungen bedeuten und wie Institute sie umsetzen. Neue Beiträge regelmäßig auf LinkedIn.</p>
+    </div>
+    <div class="grid grid-3" id="insightGrid">
+      <!-- Beiträge aus CONFIG.insights gerendert. Platzhalter bis echte Artikel live sind. -->
+    </div>
+    <div style="margin-top:34px">
+      <a href="#" id="linkedinLink" class="btn btn-ghost" target="_blank" rel="noopener">Mehr auf LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== KONTAKT ===================== -->
+<section id="kontakt">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div>
+        <div class="eyebrow">Kontakt</div>
+        <h2>Lassen Sie uns über Ihr Vorhaben sprechen</h2>
+        <p>Ob AMLR-Vorbereitung, PSD2/PSD3-Fragen oder ein konkretes Compliance-Projekt – im kostenlosen Erstgespräch klären wir Ihren Bedarf und die passenden nächsten Schritte.</p>
+        <ul class="contact-list">
+          <li><span class="lbl">E-Mail</span><a id="emailLink" class="gold">—</a></li>
+          <li><span class="lbl">LinkedIn</span><a id="liContact" class="gold" target="_blank" rel="noopener">Profil ansehen</a></li>
+          <li><span class="lbl">Sprachen</span>Deutsch · Englisch</li>
+        </ul>
+      </div>
+      <div class="cta-panel">
+        <h3>Erstgespräch buchen</h3>
+        <p class="muted" style="font-size:14.5px">30 Minuten, unverbindlich. Wählen Sie direkt einen Termin.</p>
+        <a id="calendlyBtn" class="btn btn-gold" target="_blank" rel="noopener">Termin auswählen</a>
+        <a id="emailBtn" class="btn btn-ghost" style="margin-top:12px">Per E-Mail anfragen</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== FOOTER + IMPRESSUM ===================== -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <div class="logo" style="font-size:20px">DA<span>M</span>ANN</div>
+        <p class="muted" style="font-size:13.5px;max-width:320px;margin-top:10px">
+          Anti-Financial Crime &amp; Regulatory Compliance Consulting für Banken und Fintechs im DACH-Raum.
+        </p>
+      </div>
+      <div class="foot-legal">
+        <h4>Impressum</h4>
+        <!-- Firmendaten – Straße/PLZ bitte ergänzen -->
+        DAMANN Spółka z ograniczoną odpowiedzialnością<br>
+        [Straße, Hausnummer]<br>
+        [PLZ] Wrocław, Polen<br>
+        KRS: 0001238980 · NIP: 8943285960<br>
+        Vertretungsberechtigt: Benedikt Damann<br>
+        <a id="emailLink2" class="gold">—</a>
+      </div>
+    </div>
+
+    <details>
+      <summary>Datenschutzerklärung</summary>
+      <p>Diese Website wird als statische Seite bereitgestellt. Beim Aufruf können durch den Hosting-Provider (IONOS) technisch notwendige Server-Logdaten (u. a. IP-Adresse, Zeitpunkt, abgerufene Datei) verarbeitet werden; Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO.</p>
+      <p>Der interaktive Quick-Check verarbeitet Eingaben ausschließlich lokal in Ihrem Browser; es werden keine Daten gespeichert oder an uns übertragen.</p>
+      <p>Für die Terminbuchung wird ein externer Dienst (Calendly) eingebunden. Beim Klick auf den Buchungslink gelten die Datenschutzbestimmungen des jeweiligen Anbieters. Bei Kontaktaufnahme per E-Mail verarbeiten wir Ihre Angaben zur Bearbeitung Ihrer Anfrage.</p>
+      <p><em>Hinweis: Dieser Text ist ein Muster und ersetzt keine Rechtsberatung. Vor dem Live-Gang bitte an Ihr konkretes Setup anpassen (z. B. eingesetzte Tools, Verantwortlicher, Kontaktdaten).</em></p>
+    </details>
+
+    <div class="copyright">
+      © <span id="year"></span> DAMANN Sp. z o.o. · Alle Rechte vorbehalten.
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ================================================================
+   CONFIG – zentrale Stelle zum Pflegen der Inhalte.
+   Hier Kontaktdaten, Preise, Leistungen und Insights anpassen.
+   ================================================================ */
+const CONFIG = {
+  contact: {
+    email:        "kontakt@damann-consulting.com",   // << deine Geschäfts-E-Mail eintragen
+    calendlyUrl:  "https://calendly.com/dein-link",   // << deinen Calendly-Link eintragen
+    linkedinUrl:  "https://www.linkedin.com/in/dein-profil" // << dein LinkedIn-Profil
+  },
+
+  // Leistungspakete. Preis ist ein Platzhalter – bitte prüfen/anpassen.
+  offers: [
+    {
+      title: "AMLR-Readiness-Assessment",
+      price: "Festpreis ab 4.900 €",
+      desc:  "Kompakte Standortbestimmung: Wo steht Ihr Institut gegenüber den Anforderungen des EU-AML-Pakets?",
+      items: ["Strukturierter Reifegrad-Check","Priorisierte Handlungsfelder","Management-taugliche Ergebnisübersicht"]
+    },
+    {
+      title: "Gap-Analyse AML-Framework",
+      price: "Festpreis auf Anfrage",
+      desc:  "Detaillierte Analyse von Governance, Policies, Prozessen und Systemen gegen AMLR, AMLD6 und ToFR.",
+      items: ["Soll-Ist-Abgleich je Anforderung","Bewertung nach Risiko &amp; Aufwand","Umsetzungs-Roadmap"]
+    },
+    {
+      title: "PSD2 / PSD3 &amp; Payments",
+      price: "Festpreis auf Anfrage",
+      desc:  "Einordnung der Payments-Regulatorik und Auswirkungen auf Prozesse, Kontrollen und Reporting.",
+      items: ["Regulatorische Einordnung","Prozess- &amp; System-Implikationen","Konkrete Umsetzungsschritte"]
+    },
+    {
+      title: "Transaction Monitoring &amp; Screening",
+      price: "Projektbasis",
+      desc:  "Optimierung und Kalibrierung von Monitoring- und Sanctions-Screening-Systemen – mein technischer Kernbereich.",
+      items: ["Regel- &amp; Schwellenwert-Review","Model-Risk-Perspektive","Reduktion von False Positives"]
+    },
+    {
+      title: "Interim &amp; Projektleitung",
+      price: "Tagessatz / Mandat",
+      desc:  "Operative Verstärkung für AFC-/Regulatory-Programme – von der Konzeption bis zur Umsetzung.",
+      items: ["Programm- &amp; Projektleitung","Remote oder vor Ort (DACH)","Flexible Auslastung"]
+    },
+    {
+      title: "Sparring &amp; Second Opinion",
+      price: "Ab 290 € / Stunde",
+      desc:  "Fokussierte Experteneinschätzung zu einer konkreten regulatorischen Frage – schnell und unkompliziert.",
+      items: ["Konkrete Fragestellung","Fundierte Einordnung","Ohne langen Vorlauf"]
+    }
+  ],
+
+  // Insights / Artikel. Bis echte Beiträge live sind, verlinken sie auf LinkedIn.
+  insights: [
+    { cat:"AMLR", title:"AMLR ab 2027: Was sich für Institute konkret ändert", desc:"Die wichtigsten Neuerungen des EU-AML-Pakets und ihre Auswirkungen auf Governance und Systeme." },
+    { cat:"AMLA", title:"AMLA in Frankfurt: Wer wird direkt beaufsichtigt?", desc:"Auswahlkriterien der neuen EU-Aufsicht und was das für betroffene Institute bedeutet." },
+    { cat:"Payments", title:"PSD3 &amp; PSR: Der Fahrplan für Zahlungsdienstleister", desc:"Was die neue Payments-Regulatorik bringt und wie man sich frühzeitig aufstellt." }
+  ]
+};
+
+/* ---------- Fragen für den Quick-Check ---------- */
+const QUESTIONS = [
+  "Haben Sie eine dokumentierte AMLR-Gap-Analyse gegen die neuen Anforderungen durchgeführt?",
+  "Sind Ihre internen Policies &amp; Verfahren auf AMLR / AMLD6 abgestimmt?",
+  "Erfüllt Ihr Transaction-Monitoring-System die künftigen Anforderungen (Datenqualität, Kalibrierung)?",
+  "Ist Ihr Sanctions- / Name-List-Screening auf dem aktuellen regulatorischen Stand?",
+  "Haben Sie geprüft, ob Sie in den Kreis der AMLA-beaufsichtigten Institute fallen?",
+  "Gibt es eine verantwortliche Rolle und eine Roadmap für die AMLR-Umsetzung bis 2027?"
+];
+const ANSWERS = [
+  {label:"Ja", val:2},
+  {label:"Teilweise", val:1},
+  {label:"Nein", val:0}
+];
+
+/* ================================================================
+   RENDERING & LOGIK – ab hier i. d. R. keine Änderungen nötig.
+   ================================================================ */
+(function render(){
+  // Kontakt
+  const c = CONFIG.contact;
+  const mail = "mailto:"+c.email;
+  ["emailLink","emailLink2"].forEach(id=>{const e=document.getElementById(id);e.textContent=c.email;e.href=mail;});
+  document.getElementById("emailBtn").href = mail;
+  document.getElementById("calendlyBtn").href = c.calendlyUrl;
+  document.getElementById("linkedinLink").href = c.linkedinUrl;
+  document.getElementById("liContact").href = c.linkedinUrl;
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Leistungen
+  document.getElementById("offerGrid").innerHTML = CONFIG.offers.map(o=>`
+    <div class="card">
+      <h3>${o.title}</h3>
+      <div class="price">${o.price}</div>
+      <p>${o.desc}</p>
+      <ul>${o.items.map(i=>`<li>${i}</li>`).join("")}</ul>
+    </div>`).join("");
+
+  // Insights
+  document.getElementById("insightGrid").innerHTML = CONFIG.insights.map(a=>`
+    <a class="insight" href="${CONFIG.contact.linkedinUrl}" target="_blank" rel="noopener">
+      <div class="cat">${a.cat}</div>
+      <h3>${a.title}</h3>
+      <p>${a.desc}</p>
+    </a>`).join("");
+
+  // Quick-Check
+  document.getElementById("questions").innerHTML = QUESTIONS.map((q,qi)=>`
+    <div class="q" data-q="${qi}">
+      <p>${qi+1}. ${q}</p>
+      <div class="opts">
+        ${ANSWERS.map((a,ai)=>`<span class="opt" data-val="${a.val}" onclick="pick(${qi},${ai},this)">${a.label}</span>`).join("")}
+      </div>
+    </div>`).join("");
+})();
+
+const picks = {};
+function pick(qi, ai, el){
+  picks[qi] = Number(el.dataset.val);
+  el.parentNode.querySelectorAll(".opt").forEach(o=>o.classList.remove("sel"));
+  el.classList.add("sel");
+}
+
+function calcReadiness(){
+  if(Object.keys(picks).length < QUESTIONS.length){
+    alert("Bitte beantworten Sie alle Fragen für ein aussagekräftiges Ergebnis.");
+    return;
+  }
+  const max = QUESTIONS.length * 2;
+  const sum = Object.values(picks).reduce((a,b)=>a+b,0);
+  const score = Math.round(sum/max*100);
+
+  let text;
+  if(score >= 80) text = "Gute Ausgangslage. Der Fokus liegt jetzt auf Feinjustierung, Dokumentation und dem Nachweis der Wirksamkeit vor dem AMLR-Geltungsbeginn.";
+  else if(score >= 50) text = "Solide Basis mit klaren Lücken. Eine strukturierte Gap-Analyse hilft, die Handlungsfelder zu priorisieren und die verbleibende Zeit bis 2027 gezielt zu nutzen.";
+  else text = "Deutlicher Handlungsbedarf. Es empfiehlt sich, zeitnah mit einer Standortbestimmung zu starten, um Feststellungen und Nachbesserungen unter Zeitdruck zu vermeiden.";
+
+  document.getElementById("scoreVal").textContent = score;
+  document.getElementById("scoreText").textContent = text;
+  const res = document.getElementById("result");
+  res.classList.add("show");
+  setTimeout(()=>{document.getElementById("scoreBar").style.width = score+"%";},50);
+  res.scrollIntoView({behavior:"smooth",block:"center"});
+}
+
+// Mobile-Menü nach Klick schließen
+document.querySelectorAll("#navLinks a").forEach(a=>a.addEventListener("click",()=>{
+  document.getElementById("navLinks").classList.remove("open");
+}));
+</script>
+</body>
+</html>

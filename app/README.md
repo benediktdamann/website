@@ -1,23 +1,24 @@
-# Fristen
+# Zuhause
 
-Erinnert an alles, was abläuft und teuer wird, wenn man es verpasst:
-TÜV, Versicherung, Garantie, Pass, Wartung.
+Die Oberfläche zwischen deinen Geräten und der KI. Sie setzt auf Home Assistant
+auf – das liefert die Gerätetreiber, diese App liefert das Erlebnis.
 
-Kein Server, kein Konto, kein API-Schlüssel. Alle Daten bleiben auf dem Gerät.
+```
+Geräte  →  Home Assistant  →  [diese App]  →  du
+              2000 Integrationen    Klartext statt YAML
+              Sprachagent
+```
 
 ## Was sie kann
 
-- Frist mit Titel und Datum anlegen
-- Liste nach Dringlichkeit eingefärbt: überfällig rot, in den nächsten 14 Tagen orange, sonst grün
-- Lokale Benachrichtigung 1, 7, 14 oder 30 Tage vorher, morgens um 9 Uhr
-- Bleibt nach dem Schließen der App erhalten
-- Löschen per langem Tippen auf einen Eintrag
+- **Verbinden**: Adresse und Zugriffstoken eingeben, wird geprüft und gespeichert
+- **Geräte**: alle Entities in verständlich benannten Gruppen, Lichter und Steckdosen
+  direkt schaltbar, Messwerte mit Einheit
+- **Sprechen**: Sätze an den Sprachagenten, den du in Home Assistant eingerichtet
+  hast – dort steckt die KI
 
-## Einmalig einrichten
-
-1. **Node.js** auf dem Windows-Laptop installieren: https://nodejs.org (LTS-Version)
-2. **Expo Go** auf dem iPhone installieren, aus dem App Store
-3. Laptop und iPhone im **selben WLAN**
+Namen kommen aus `friendly_name`; fehlt der, wird die Entity-ID lesbar gemacht.
+Zustände sind auf Deutsch: `on` wird zu „an", `locked` zu „verriegelt".
 
 ## Starten
 
@@ -27,45 +28,55 @@ npm install
 npm start
 ```
 
-QR-Code mit der **iPhone-Kamera** scannen, auf die Benachrichtigung tippen.
+QR-Code mit der iPhone-Kamera scannen. Beim ersten Start fragt die App nach
+Adresse und Token.
 
-Beim ersten Start fragt die App nach der Erlaubnis für Mitteilungen. Ohne diese
-Erlaubnis funktioniert die Liste weiterhin, aber es kommt keine Erinnerung.
+### Woher das Token kommt
 
-Ab jetzt gilt: Datei speichern → App auf dem iPhone lädt sofort neu.
+In Home Assistant unten links auf dein Profil, Reiter „Sicherheit", ganz unten
+unter „Langlebige Zugriffstokens" ein neues erzeugen. Das Token wird nur einmal
+angezeigt.
 
-### Wenn der QR-Code nicht funktioniert
+## Entwickeln ohne Home Assistant
 
-Meist blockiert die Windows-Firewall, oder das WLAN trennt Geräte voneinander
-(häufig in Gast- und Firmennetzen). Dann über einen Tunnel starten:
+Es liegt eine Attrappe dabei, die dieselben Endpunkte spricht wie das Original:
 
 ```
-npm start -- --tunnel
+npm run attrappe
 ```
 
-Langsamer, funktioniert aber auch über Mobilfunk.
+Sie läuft auf Port 8123, das Token ist `attrappe-token`. In der App gibst du die
+**LAN-Adresse deines Laptops** ein, nicht `localhost` – das wäre aus Sicht des
+iPhones das iPhone selbst. Die Adresse findest du unter Windows mit `ipconfig`.
 
-## Was in Expo Go anders ist
+## Prüfen
 
-Erinnerungen erscheinen als Mitteilung von **Expo Go**, nicht von „Fristen" –
-die App hat in dieser Phase noch kein eigenes Zuhause auf dem iPhone. Sobald ein
-richtiger Build gemacht wird, kommt die Mitteilung unter eigenem Namen und
-eigenem Symbol.
+```
+npm run pruefe
+```
 
-Wird Expo Go vom iPhone gelöscht, verschwinden auch die Einträge.
+Übersetzt den Client nach JavaScript und fährt ihn gegen die Attrappe: Token
+falsch und richtig, Adress-Normalisierung, Zeitüberschreitung, Gruppierung,
+Übersetzung der Zustände, Schalten, Sprachagent. 22 Prüfungen.
 
 ## Aufbau
 
 | Datei | Zuständig für |
 |---|---|
-| `App.tsx` | Oberfläche: Liste, Formular, Farben |
-| `src/fristen.ts` | Datenmodell, Speichern, Datumsrechnung |
-| `src/erinnerungen.ts` | Benachrichtigungen planen und löschen |
+| `src/homeassistant.ts` | REST-Client und Darstellungsregeln. Kein React Native, damit testbar |
+| `src/speicher.ts` | Verbindung auf dem Gerät ablegen |
+| `src/ui/Verbinden.tsx` | Einrichtungsbildschirm |
+| `src/ui/Geraete.tsx` | Geräteliste mit Schaltern |
+| `src/ui/Sprechen.tsx` | Unterhaltung mit dem Sprachagenten |
+| `src/ui/thema.ts` | Farben |
+| `tools/mock-ha.mjs` | Attrappe von Home Assistant |
+| `tools/pruefe.mjs` | Prüfungen gegen die Attrappe |
 
-## Zum Ausprobieren
+## Was als Nächstes fehlt
 
-- `ERINNERUNGS_STUNDE` in `src/erinnerungen.ts` – zu welcher Uhrzeit erinnert wird
-- `VORLAUF_OPTIONEN` oben in `App.tsx` – welche Vorlaufzeiten zur Auswahl stehen
-- `dringlichkeit()` in `src/fristen.ts` – ab wann eine Frist als dringend gilt
-
-Ändern, speichern, aufs iPhone schauen.
+- **Räume statt Gerätearten.** Die REST-API liefert keine Raumzuordnung, dafür
+  braucht es die Websocket-API. Danach wird aus „Licht" das „Wohnzimmer".
+- **Automatisierung anlegen.** Beschreiben statt bauen: „sag mir wenn die
+  Waschmaschine fertig ist" soll die Automatisierung in Home Assistant erzeugen.
+- **Sprache statt Tippen.** Diktat aufs Mikrofon.
+- **Geräte suchen.** Bei vielen Entities braucht die Liste ein Suchfeld.

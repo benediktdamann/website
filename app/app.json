@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Würfel",
-    "slug": "wuerfel",
+    "name": "Fristen",
+    "slug": "fristen",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
